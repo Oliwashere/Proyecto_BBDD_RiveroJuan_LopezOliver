@@ -50,8 +50,8 @@ CREATE TABLE Especie (
 
 CREATE TABLE Especie_Area (
     ID_Especie INT NOT NULL,
-    ID_Area INT NOT NULL,
-    Numero_Individuos INT NOT NULL,
+    ID_Area INT,
+    Numero_Individuos INT,
     PRIMARY KEY (ID_Especie, ID_Area),
     FOREIGN KEY (ID_Especie) REFERENCES Especie(ID_Especie),
     FOREIGN KEY (ID_Area) REFERENCES Area(ID_Area)
@@ -74,7 +74,7 @@ CREATE TABLE Visitante (
 
 CREATE TABLE Visitante_Alojamiento (
     ID_Visitante INT NOT NULL,
-    ID_Alojamiento INT NOT NULL,
+    ID_Alojamiento INT,
     PRIMARY KEY (ID_Visitante, ID_Alojamiento),
     FOREIGN KEY (ID_Visitante) REFERENCES Visitante(ID_Visitante),
     FOREIGN KEY (ID_Alojamiento) REFERENCES Alojamiento(ID_Alojamiento)
@@ -95,7 +95,7 @@ CREATE TABLE Personal (
 
 CREATE TABLE Personal_Gestion (
     ID_Personal INT NOT NULL PRIMARY KEY,
-    ID_Entrada INT NOT NULL,
+    ID_Entrada INT,
     FOREIGN KEY (ID_Personal) REFERENCES Personal(ID_Personal)
 );
 
@@ -113,8 +113,8 @@ CREATE TABLE Vehiculo (
 
 CREATE TABLE Personal_Vigilancia (
     ID_Personal INT NOT NULL PRIMARY KEY,
-    ID_Area INT NOT NULL,
-    ID_Vehiculo INT NOT NULL,
+    ID_Area INT,
+    ID_Vehiculo INT,
     FOREIGN KEY (ID_Personal) REFERENCES Personal(ID_Personal),
     FOREIGN KEY (ID_Area) REFERENCES Area(ID_Area),
     FOREIGN KEY (ID_Vehiculo) REFERENCES Vehiculo(ID_Vehiculo)
@@ -122,7 +122,7 @@ CREATE TABLE Personal_Vigilancia (
 
 CREATE TABLE Personal_Conservacion (
     ID_Personal INT NOT NULL PRIMARY KEY,
-    ID_Area INT NOT NULL,
+    ID_Area INT,
     Especialidad VARCHAR(50),
     FOREIGN KEY (ID_Personal) REFERENCES Personal(ID_Personal),
     FOREIGN KEY (ID_Area) REFERENCES Area(ID_Area)
@@ -141,8 +141,8 @@ CREATE TABLE Personal_Investigador (
 
 CREATE TABLE Investigador_Proyecto (
     ID_Personal INT NOT NULL,
-    ID_Proyecto INT NOT NULL,
-    ID_Especie INT NOT NULL,
+    ID_Proyecto INT,
+    ID_Especie INT,
     PRIMARY KEY (ID_Personal, ID_Proyecto, ID_Especie),
     FOREIGN KEY (ID_Personal) REFERENCES Personal(ID_Personal),
     FOREIGN KEY (ID_Proyecto) REFERENCES Proyecto_Investigacion(ID_Proyecto),
