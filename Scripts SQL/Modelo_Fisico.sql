@@ -34,7 +34,7 @@ CREATE TABLE Entidad_Responsable (
 );
 
 CREATE TABLE Area (
-    ID_Area INT NOT NULL PRIMARY KEY,
+    ID_Area INT PRIMARY KEY,
     Nombre VARCHAR(255) NOT NULL,
     Extension DECIMAL(10,2) NOT NULL,
     ID_Parque INT NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE Especie (
     ID_Especie INT NOT NULL PRIMARY KEY,
     Denominacion_Cientifica VARCHAR(255) NOT NULL,
     Denominacion_Vulgar VARCHAR(255) NOT NULL,
-    Tipo ENUM('Vegetal', 'Animal', 'Mineral') NOT NULL
+    Tipo ENUM('Predeterminado', 'Vegetal', 'Animal', 'Mineral') NOT NULL
 );
 
 CREATE TABLE Especie_Area (
