@@ -6,9 +6,16 @@ CREATE DATABASE IF NOT EXISTS Ambientales;
 
 USE Ambientales;
 
+CREATE TABLE Entidad_Responsable (
+   ID_Entidad INT NOT NULL PRIMARY KEY,
+   Nombre VARCHAR(255) NOT NULL
+);
+
 CREATE TABLE Departamento (
-    ID_Departamento INT NOT NULL PRIMARY KEY,
-    Nombre VARCHAR(60) NOT NULL
+   ID_Departamento INT NOT NULL PRIMARY KEY,
+   Nombre VARCHAR(60) NOT NULL,
+   ID_Entidad INT,
+   FOREIGN KEY (ID_Entidad) REFERENCES Entidad_Responsable(ID_Entidad)
 );
 
 CREATE TABLE Parque (
@@ -26,13 +33,6 @@ CREATE TABLE Departamento_Parque (
     FOREIGN KEY (ID_Parque) REFERENCES Parque(ID_Parque)
 );
 
-CREATE TABLE Entidad_Responsable (
-    ID_Entidad INT NOT NULL PRIMARY KEY,
-    Nombre VARCHAR(255) NOT NULL,
-    ID_Departamento INT NOT NULL,
-    FOREIGN KEY (ID_Departamento) REFERENCES Departamento(ID_Departamento)
-);
-
 CREATE TABLE Area (
     ID_Area INT PRIMARY KEY,
     Nombre VARCHAR(255) NOT NULL,
@@ -42,14 +42,14 @@ CREATE TABLE Area (
 );
 
 CREATE TABLE Especie (
-    ID_Especie INT NOT NULL PRIMARY KEY,
+    ID_Especie INT PRIMARY KEY,
     Denominacion_Cientifica VARCHAR(255) NOT NULL,
     Denominacion_Vulgar VARCHAR(255) NOT NULL,
     Tipo ENUM('Predeterminado', 'Vegetal', 'Animal', 'Mineral') NOT NULL
 );
 
 CREATE TABLE Especie_Area (
-    ID_Especie INT NOT NULL,
+    ID_Especie INT,
     ID_Area INT,
     Numero_Individuos INT,
     PRIMARY KEY (ID_Especie, ID_Area),
@@ -81,7 +81,7 @@ CREATE TABLE Visitante_Alojamiento (
 );
 
 CREATE TABLE Personal (
-    ID_Personal INT NOT NULL PRIMARY KEY,
+    ID_Personal INT NOT NULL PRIMARY KEY auto_increment,
     Numero_Cedula VARCHAR(20) NOT NULL,
     Nombre VARCHAR(255) NOT NULL,
     Direccion VARCHAR(255) NOT NULL,
