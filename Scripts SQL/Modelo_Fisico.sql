@@ -19,10 +19,11 @@ CREATE TABLE Departamento (
 );
 
 CREATE TABLE Parque (
-    ID_Parque INT NOT NULL PRIMARY KEY,
+    ID_Parque INT NOT NULL PRIMARY KEY auto_increment,
     Nombre VARCHAR(255) NOT NULL,
     Fecha_Declaracion DATE NOT NULL,
-    Superficie_Total DECIMAL(10,2) NOT NULL
+    Superficie_Total DECIMAL(10,2) NOT NULL,
+    Num_Entradas int
 );
 
 CREATE TABLE Departamento_Parque (
@@ -34,7 +35,7 @@ CREATE TABLE Departamento_Parque (
 );
 
 CREATE TABLE Area (
-    ID_Area INT PRIMARY KEY,
+    ID_Area INT PRIMARY KEY auto_increment,
     Nombre VARCHAR(255) NOT NULL,
     Extension DECIMAL(10,2) NOT NULL,
     ID_Parque INT NOT NULL,
@@ -42,7 +43,7 @@ CREATE TABLE Area (
 );
 
 CREATE TABLE Especie (
-    ID_Especie INT PRIMARY KEY,
+    ID_Especie INT PRIMARY KEY auto_increment,
     Denominacion_Cientifica VARCHAR(255) NOT NULL,
     Denominacion_Vulgar VARCHAR(255) NOT NULL,
     Tipo ENUM('Predeterminado', 'Vegetal', 'Animal', 'Mineral') NOT NULL
@@ -66,7 +67,7 @@ CREATE TABLE Alojamiento (
 );
 
 CREATE TABLE Visitante (
-    ID_Visitante INT NOT NULL PRIMARY KEY,
+    ID_Visitante INT NOT NULL PRIMARY KEY auto_increment,
     Nombre VARCHAR(255) NOT NULL,
     Direccion VARCHAR(255) NOT NULL,
     Profesion VARCHAR(255) NOT NULL
@@ -129,7 +130,7 @@ CREATE TABLE Personal_Conservacion (
 );
 
 CREATE TABLE Proyecto_Investigacion (
-    ID_Proyecto INT NOT NULL PRIMARY KEY,
+    ID_Proyecto INT NOT NULL PRIMARY KEY auto_increment,
     Nombre VARCHAR(255) NOT NULL
 );
 
