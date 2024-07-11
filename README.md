@@ -74,6 +74,10 @@ Se documentó el proceso completo de realización del proyecto en el siguiente g
 
 Los diferentes scripts desarrollados para el proyecto se encuentran en el siguiente repositorio;
 - [Github](https://github.com/Oliwashere/Proyecto_BBDD_RiveroJuan_LopezOliver)
+
+ Una breve presentación del software desarrollado se encuentra a continuación:
+- [Canva](https://proyectobbdd.my.canva.site/)
+
 ## Referencias
 
 Proyecto asignado para su debida realización y entrega:
