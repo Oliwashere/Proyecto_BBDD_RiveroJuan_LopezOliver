@@ -2,6 +2,15 @@
 -- ### PROYECTO BBDD - Funciones ###
 -- #################################
 
+-- ## Comenzar una serie de cambios ##
+BEGIN;
+
+-- ## Aplicar la serie de cambios desde que se ejecuta BEGIN ##
+COMMIT;
+
+-- ## No aplicar la serie de cambios desde que se ejecuta BEGIN ##
+ROLLBACK;
+
 -- ## Insertar personal ##
 
 CALL insertar_personal(
